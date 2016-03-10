@@ -1,0 +1,102 @@
+body {
+  background-color: #1395ba;
+}
+
+h3 {
+  width: 387px;
+  margin: 0 auto;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 30px;
+  color: #0d3c55;
+  padding: 20px;
+}
+
+.explanation {
+  width: 650px;
+  margin: 0 auto;
+  padding: 30px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  color: #0d3c55;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -webkit-border-radius: 0px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  border: 0;
+  background-color: #ebc844;
+  color: #0d3c55;
+  padding: 10px 15px;
+  cursor: hand;
+}
+
+select:hover, select:focus {
+  background-color: #32cd32;
+}
+
+.greenify {
+  color: #32cd32;
+}
+
+.orangify {
+  color: #f16c20;
+}
+
+svg {
+  display: block;
+  width: 480px;
+  margin: 0 auto;
+}
+
+.select-menu {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+}
+
+.slide-bars {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+}
+
+.control-panel {
+  width: 650px;
+  height: 110px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #0d3c55;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  color: #ebc844;
+  position: relative;
+}
+
+.generations-counter {
+  position: absolute;
+  top: 35px;
+  left: 25px;
+}
+
+.buttons-container {
+  position: absolute;
+  bottom: 35px;
+  left: 25px;
+}
+
+.button-link {
+  padding: 10px 15px;
+  background: #ebc844;
+  color: #0d3c55;
+  text-decoration: none;
+  -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+}
+
+.button-link:hover, .button-link:focus {
+  background: #32cd32;
+}
