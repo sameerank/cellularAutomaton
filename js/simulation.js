@@ -4,12 +4,12 @@ var seedPercent = parseInt(document.getElementById("seed-probability-control").v
 var seedProbability = seedPercent / 100;
 var generationCount = 0;
 var runState = false;
-var m = false;
+var mouseToggle = false;
 document.getElementById("generation-count").innerHTML = generationCount;
 
 newGame.assignRandomStates(seedProbability);
 
-var viz = d3.select("body")
+var viz = d3.select(".display")
 .append("svg:svg")
 .attr("class", "viz")
 .attr("width", newGame.cellCountAlongRow * newGame.cellSideLength + "px")
@@ -24,10 +24,10 @@ viz.selectAll("rect")
   .attr("y", function(cellObj) { return newGame.scaleColumnLength(cellObj.col) })
   .attr("width", newGame.cellSideLength)
   .attr("height", newGame.cellSideLength)
-  .on('mouseup', function() { m = false; })
-  .on('mousedown', function() { m = true; })
+  .on('mouseup', function() { mouseToggle = false; })
+  .on('mousedown', function() { mouseToggle = true; })
   .on("mousemove", function(d) {
-    if (m) {
+    if (mouseToggle) {
       newGame.cellStates[d.row][d.col] = !d.cellState;
       render();
     }

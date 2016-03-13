@@ -6,16 +6,22 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+    <link rel="stylesheet" href="./fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+    <script type="text/javascript" src="./fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
     <meta charset="utf-8">
     <script src="js/d3.js"> </script>
     <script src="js/game.js"> </script>
     <script src="js/rules.js"> </script>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js">
     </script>
 
   </head>
   <body>
-    <h3><span class="greenify">Life</span>-like Cellular Automaton</h3>
+    <h3><span class="greenify"><i class="fa fa-leaf"></i> Life</span>-like Cellular Automaton</h3>
     <div class="control-panel">
       <div class="generations-counter">
         Generation: <span id="generation-count"></span>
@@ -40,10 +46,10 @@
     </div>
 
     <div class="slide-bars">
-      <label> Seed probability
-        <input type="range" min="0" max="100" value="20"
+      <label> Seed probability:
+        <input type="range" min="0" max="100" value="10"
           onchange="updateProbabilityValue(this.value)" id="seed-probability-control" />
-        <span id="seed-probability">20%</span>
+        <span id="seed-probability">10%</span>
       </label>
     </div>
 
@@ -57,15 +63,29 @@
 
     </script>
     </div>
-
-    <script src="js/simulation.js"> </script>
-
-    <div class="explanation">
-      <p><b>Instructions:</b> Click start to run a cellular automaton simulation. Click stop to pause the simulation. Click on the box next to "Rules: " to select and apply a different set of rules to the cellular automaton animation. The slider controller changes the probabilty for initially seeding live cells. If you change this, click reset for the new seeding probability to take effect.</p>
-      <p><b>An explanation:</b> The cellular automaton engine performs its calculations on an infinite two-dimensional grid of square cells, each of which is in one of two possible states, alive or dead. Every cell's mortality in the subsequent generation is determined by its Moore neighborhood, which are the eight cells that are horizontally, vertically, or diagonally adjacent.
-        The rules that determine whether a cell is born, remains alive, or dies cause cellular automaton to evolve in interesting ways. A popular example of these is <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life"> Conway's Game of Life</a>, also known simply as Life. Since Life's inception, new similar cellular automata have been developed.
-        The standard Game of Life is symbolised as "B3/S23": A cell is "<b>B</b>orn" if it has exactly 3 neighbours, "<b>S</b>tays alive" if it has 2 or 3 living neighbours; it dies otherwise. Try different sets of rules to see how the patterns that emerge differ.</p>
-      <p><b>HINT!</b> You can also click on the grid with your mouse and draw your own initial pattern. Then, watch it evolve!</p>
+    <div class="display">
+      <script src="js/simulation.js"> </script>
+      <div class="explanation">
+        <p><b>Instructions:</b> Click <b>Start</b> to run a cellular automaton simulation.
+          Click <b>Stop</b> to pause the simulation. Click <b>Reset</b> to re-seed the cells.
+          The slider controller sets the probabilty that a cell is alive (orange).
+          Click on the box next to "Rules: " to select and apply a different set of rules to
+          dictate the cellular automaton.</p>
+        <p>Click <a href="#content-div" class="fancybox">here</a> to read a short explanation of the cellular automaton rules</p>
+        <p><b>HINT!</b> You can also draw out your own initial pattern on the grid with your mouse.
+          Then, click start to watch it evolve!</p>
+      </div>
     </div>
+
+    <div style="display: none">
+      <div id="content-div">Some content here</div>
+    </div>
+
+    <script type="text/javascript">
+    	$(document).ready(function() {
+    		$(".fancybox").fancybox();
+    	});
+    </script>
+
   </body>
 </html>
