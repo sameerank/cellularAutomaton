@@ -32,6 +32,18 @@ svg {
   position: relative;
   float: right;
 }
+
+#content-div {
+  color: #ebc844;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 100;
+}
+
+#content-div a {
+  color: #32cd32;
+}
+
 .greenify {
   color: #32cd32;
 }

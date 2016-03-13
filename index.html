@@ -78,13 +78,20 @@
     </div>
 
     <div style="display: none">
-      <div id="content-div">Some content here</div>
+      <div id="content-div"><b>An explanation of cellular automaton rules:</b><br />This cellular automaton engine performs its calculations on an infinite two-dimensional grid of square cells, each of which is in one of two possible states, alive or dead. Every cell's mortality in the subsequent generation is determined by its Moore neighborhood, which are the eight cells that are horizontally, vertically, or diagonally adjacent. The rules that determine whether a cell is born, remains alive, or dies causes the cellular automaton to evolve in interesting ways. A popular example of these rules is <a href="http://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Conway's Game of Life</a>, also known simply as Life. Since Life's inception, new similar cellular automata have been developed. The standard Game of Life is symbolised as "B3/S23": a cell is "<b>B</b>orn" if it has exactly 3 neighbours, a cell "<b>S</b>tays alive" if it has 2 or 3 living neighbours, or the cell dies otherwise. Try different sets of rules to see different patterns emerge.</div>
     </div>
 
     <script type="text/javascript">
     	$(document).ready(function() {
-    		$(".fancybox").fancybox();
-    	});
+    		$(".fancybox").fancybox({
+          'autoSize': false,
+          'width': 750,
+          'height': 300,
+          beforeShow: function () {
+            $(".fancybox-skin").css("backgroundColor", "#0d3c55");
+           }
+    	})
+    });
     </script>
 
   </body>
