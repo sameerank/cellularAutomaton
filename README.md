@@ -14,6 +14,4 @@ Click start to run a cellular automaton simulation. Click stop to pause the simu
 
 ## List of ingredients
 
-The cellular automaton engine is made with Javascript and visualized as an SVG rendered using D3.js.
-
-## Technical implementation details
+The cellular automaton engine is made with Javascript and visualized as an SVG rendered using [D3.js](https://d3js.org/). The modal for explaining the rules underlying cellular automaton was made using [fancyBox](http://fancyapps.com/fancybox/).
