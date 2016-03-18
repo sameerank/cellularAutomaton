@@ -12,9 +12,10 @@
 
     <link rel="stylesheet" href="./fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
     <script type="text/javascript" src="./fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+    <script type="text/javascript" src="http://ariutta.github.io/svg-pan-zoom/dist/svg-pan-zoom.min.js"></script>
 
     <meta charset="utf-8">
-    <script src="js/d3.js"> </script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/mbostock/d3/master/d3.min.js"> </script>
     <script src="js/game.js"> </script>
     <script src="js/rules.js"> </script>
     </script>
@@ -29,6 +30,7 @@
       <div class="buttons-container">
         <a href="#" onclick="startSimulation()" class="button-link">Start</a>
         <a href="#" onclick="stopSimulation()" class="button-link">Stop</a>
+        <a href="#" onclick="stepSimulation()" class="button-link">Step</a>
         <a href="#" onclick="resetSimulation()" class="button-link">Reset</a>
       </div>
 
@@ -66,20 +68,53 @@
     <div class="display">
       <script src="js/simulation.js"> </script>
       <div class="explanation">
-        <p><b>Instructions:</b> Click <b>Start</b> to run a cellular automaton simulation.
-          Click <b>Stop</b> to pause the simulation. Click <b>Reset</b> to re-seed the cells.
-          The slider controller sets the probabilty that a cell is alive (orange).
-          Click on the box next to "Rules: " to select and apply a different set of rules to
-          dictate the cellular automaton.</p>
-        <p>Click <a href="#content-div" class="fancybox">here</a> to read a short explanation of the cellular automaton rules</p>
-        <p><b>HINT!</b> You can also draw out your own initial pattern on the grid with your mouse.
-          Then, click start to watch it evolve!</p>
+        <p><b>Instructions:</b></p>
+        <ul>
+          <li>
+            <b>Start</b> to run the simulation.
+          </li>
+          <li>
+            <b>Stop</b> to pause the simulation.
+          </li>
+          <li>
+            <b>Step</b> to step one generation forward.
+          </li>
+          <li>
+            <b>Reset</b> to re-seed the cells and return to the 0th generation.
+          </li>
+          <li>
+            <b>Seed probability</b> sets the probabilty that a cell is alive (orange) when the grid is reset.
+          </li>
+          <li>
+            <b>Rules</b> provides a select menu for different cellular automaton rules. Click <a href="#content-div" class="fancybox">here</a> to read a short explanation of the cellular automaton rules
+          </li>
+          <li>
+            <b>Click on the grid</b> to draw out your own initial pattern. Then, click start to watch it evolve!
+          </li>
+        </ul>
       </div>
     </div>
 
     <div style="display: none">
       <div id="content-div"><b>An explanation of cellular automaton rules:</b><br />This cellular automaton engine performs its calculations on an infinite two-dimensional grid of square cells, each of which is in one of two possible states, alive or dead. Every cell's mortality in the subsequent generation is determined by its Moore neighborhood, which are the eight cells that are horizontally, vertically, or diagonally adjacent. The rules that determine whether a cell is born, remains alive, or dies causes the cellular automaton to evolve in interesting ways. A popular example of these rules is <a href="http://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Conway's Game of Life</a>, also known simply as Life. Since Life's inception, new similar cellular automata have been developed. The standard Game of Life is symbolised as "B3/S23": a cell is "<b>B</b>orn" if it has exactly 3 neighbours, a cell "<b>S</b>tays alive" if it has 2 or 3 living neighbours, or the cell dies otherwise. Try different sets of rules to see different patterns emerge.</div>
     </div>
+
+    <script type="text/javascript">
+    	$(document).ready(function() {
+    		$(".fancybox").fancybox({
+          'autoSize': false,
+          'width': 750,
+          'height': 300,
+          beforeShow: function () {
+            $(".fancybox-skin").css("backgroundColor", "#0d3c55");
+           }
+    	});
+      svgPanZoom('.viz', {
+        zoomEnabled: true,
+        controlIconsEnabled: true
+      });
+    });
+    </script>
 
   </body>
 </html>

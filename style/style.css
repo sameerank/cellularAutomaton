@@ -31,6 +31,13 @@ select:hover, select:focus {
 svg {
   position: relative;
   float: right;
+  border: solid;
+  border-color: #32cd32;
+}
+
+svg:active {
+  cursor: pointer;
+  cursor: hand;
 }
 
 #content-div {
@@ -42,6 +49,15 @@ svg {
 
 #content-div a {
   color: #32cd32;
+}
+
+.svg-pan-zoom-control-background {
+  fill: rgba(0,0,0,0) !important;
+}
+
+.svg-pan-zoom-control {
+  fill: #32cd32 !important;
+  fill-opacity: 1 !important;
 }
 
 .greenify {
@@ -86,7 +102,7 @@ svg {
 }
 
 .control-panel {
-  width: 650px;
+  width: 700px;
   height: 110px;
   margin: 30px auto;
   padding: 20px;

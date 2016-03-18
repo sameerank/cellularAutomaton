@@ -25,10 +25,14 @@ viz.selectAll("rect")
   .attr("width", newGame.cellSideLength)
   .attr("height", newGame.cellSideLength)
   .on('mouseup', function() { mouseToggle = false; })
-  .on('mousedown', function() { mouseToggle = true; })
+  .on('mousedown', function(d) {
+    mouseToggle = true;
+    newGame.cellStates[d.row][d.col] = true;
+    render();
+  })
   .on("mousemove", function(d) {
     if (mouseToggle) {
-      newGame.cellStates[d.row][d.col] = !d.cellState;
+      newGame.cellStates[d.row][d.col] = true;
       render();
     }
   });
@@ -55,6 +59,14 @@ function startSimulation() {
 
 function stopSimulation() {
   runState = false;
+}
+
+function stepSimulation() {
+  runState = false;
+  newGame.computeNextGeneration();
+  generationCount += 1;
+  document.getElementById("generation-count").innerHTML = generationCount;
+  render();
 }
 
 
