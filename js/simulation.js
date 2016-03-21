@@ -1,5 +1,5 @@
 var newGame = new Game();
-var delayTime = 300;
+var delayTime = 1000 / parseInt(document.getElementById("speed-control").value);
 var seedPercent = parseInt(document.getElementById("seed-probability-control").value);
 var seedProbability = seedPercent / 100;
 var generationCount = 0;
@@ -69,16 +69,13 @@ function stepSimulation() {
   render();
 }
 
-
-setInterval(function () {
+var interval = setInterval(function () {
 
   if (runState === true) {
 
     newGame.computeNextGeneration();
-
     generationCount += 1;
     document.getElementById("generation-count").innerHTML = generationCount;
-
     render();
 
   }

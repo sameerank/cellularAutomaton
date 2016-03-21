@@ -48,7 +48,13 @@
     </div>
 
     <div class="slide-bars">
-      <label> Seed probability:
+      <label> Simulation speed:
+        <input type="range" min="1" max="9" value="3"
+          onchange="updateSpeedValue(this.value)" id="speed-control" />
+        <span id="simulation-speed">3 FPS</span>
+      </label>
+      <br />
+      <label> &nbsp; Seed probability:
         <input type="range" min="0" max="100" value="10"
           onchange="updateProbabilityValue(this.value)" id="seed-probability-control" />
         <span id="seed-probability">10%</span>
@@ -61,6 +67,27 @@
       	document.getElementById("seed-probability").innerHTML=newProbabilityValue + "%";
         seedPercent = parseInt(document.getElementById("seed-probability-control").value);
         seedProbability = seedPercent / 100;
+      }
+
+      function updateSpeedValue(newSpeedValue)
+      {
+        document.getElementById("simulation-speed").innerHTML=newSpeedValue + " FPS";
+        speedFPS = parseInt(document.getElementById("speed-control").value);
+        clearInterval(interval);
+        delayTime = 1000 / speedFPS;
+
+        interval = setInterval(function () {
+
+          if (runState === true) {
+
+            newGame.computeNextGeneration();
+            generationCount += 1;
+            document.getElementById("generation-count").innerHTML = generationCount;
+            render();
+
+          }
+
+        }, delayTime);
       }
 
     </script>
@@ -86,7 +113,7 @@
             <b>Seed probability</b> sets the probabilty that a cell is alive (orange) when the grid is reset.
           </li>
           <li>
-            <b>Rules</b> provides a select menu for different cellular automaton rules. Click <a href="#content-div" class="fancybox">here</a> to read a short explanation of the cellular automaton rules
+            <b>Rules</b> provides a select menu for different cellular automaton rules. Click <a href="#content-div" class="fancybox">here</a> to read a short explanation of the cellular automaton rules.
           </li>
           <li>
             <b>Click on the grid</b> to draw out your own initial pattern. Then, click start to watch it evolve!
